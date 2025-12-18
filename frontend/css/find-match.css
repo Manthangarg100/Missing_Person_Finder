@@ -1,0 +1,127 @@
+/* ================= MATCH PAGE ================= */
+.match-section {
+  max-width: 800px;
+  margin: 70px auto;
+  padding: 40px 50px;
+}
+
+.match-section h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #475569;
+  margin-bottom: 30px;
+}
+
+/* ================= UPLOAD CARD ================= */
+.upload-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.upload-box {
+  display: block;
+  border: 2px dashed #c7d2fe;
+  border-radius: 12px;
+  padding: 30px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.upload-box .icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.upload-box p {
+  font-size: 14px;
+  color: #475569;
+}
+
+/* ================= BUTTON ================= */
+.match-btn {
+  padding: 14px 24px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.match-btn:hover {
+  background: #1e40af;
+}
+
+/* ================= RESULT CARD ================= */
+.result-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.result-card h3 {
+  margin-bottom: 20px;
+}
+
+.result-content {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.image-preview {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  background: #e5edff;
+}
+
+.result-info {
+  flex: 1;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  margin: 8px 0;
+}
+
+.progress {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 6px;
+  width: 0%;
+}
+
+.percentage {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 640px) {
+  .match-section {
+    margin: 40px 20px;
+    padding: 20px;
+  }
+
+  .result-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

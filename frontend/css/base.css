@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f8ff;
+  color: #1e293b;
+}
+
+.navbar {
+  background: #ffffff;
+  padding: 16px 48px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+}
+
+.navbar a.active {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.logo {
+  font-weight: 700;
+  color: #2563eb;
+}

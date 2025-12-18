@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Missing Person</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/find-match.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="logo">Missing Person Finder</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="add-missing.html">Report Missing</a>
+    <a href="find-match.html" class="active">Find Person</a>
+    <a href="#" class="login-btn">LOGIN</a>
+  </nav>
+</header>
+
+<!-- ================= MATCH SECTION ================= -->
+<section class="match-section">
+  <h1>Find a Missing Person</h1>
+  <p class="subtitle">
+    Upload an image to check for possible matches using AI face recognition.
+  </p>
+
+  <!-- Upload Card -->
+  <div class="upload-card">
+    <label class="upload-box">
+      <input type="file" hidden>
+      <span class="icon">📤</span>
+      <p>Click to upload image</p>
+    </label>
+
+    <button class="match-btn">Find Match</button>
+  </div>
+
+  <!-- Result Card -->
+  <div class="result-card">
+    <h3>Match Result</h3>
+
+    <div class="result-content">
+      <div class="image-preview"></div>
+
+      <div class="result-info">
+        <p><strong>Match Confidence:</strong></p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 0%"></div>
+        </div>
+        <span class="percentage">—</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

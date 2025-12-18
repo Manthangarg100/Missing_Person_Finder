@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Missing Person</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/add-missing.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="logo">Missing Person Finder</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="add-missing.html" class="active">Report Missing</a>
+    <a href="find-match.html">Find Person</a>
+    <a href="#" class="login-btn">LOGIN</a>
+  </nav>
+</header>
+
+<!-- ================= FORM SECTION ================= -->
+<section class="report-section">
+  <h1>Report a Missing Person</h1>
+  <p class="subtitle">
+    Please provide accurate information to help us find the person faster.
+  </p>
+
+  <form class="report-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter full name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" placeholder="Age" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Last Seen Location</label>
+      <input type="text" placeholder="City, area, landmark" required>
+    </div>
+
+    <div class="form-group">
+      <label>Upload Photo</label>
+      <input type="file" required>
+    </div>
+
+    <div class="form-group">
+      <label>Additional Details</label>
+      <textarea rows="4" placeholder="Clothing, time, any identification marks"></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Report</button>
+  </form>
+</section>
+
+</body>
+</html>

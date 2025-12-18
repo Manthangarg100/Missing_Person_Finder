@@ -1,0 +1,88 @@
+/* ================= REPORT FORM ================= */
+.report-section {
+  max-width: 700px;
+  margin: 70px auto;
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.report-section h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #475569;
+  margin-bottom: 30px;
+}
+
+/* ================= FORM ================= */
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #1e293b;
+}
+
+input,
+textarea {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  font-size: 14px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* ================= BUTTON ================= */
+.submit-btn {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #1e40af;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 640px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .report-section {
+    margin: 40px 20px;
+    padding: 30px;
+  }
+}
