@@ -48,7 +48,8 @@
 
     <div class="form-group">
       <label>Upload Photo</label>
-      <input type="file" required>
+      <input type="file" id="photo-upload" accept="image/*" required>
+      <img id="photo-preview" style="display: none; max-width: 200px; margin-top: 10px;">
     </div>
 
     <div class="form-group">
@@ -60,5 +61,6 @@
   </form>
 </section>
 
+<script src="script.js"></script>
 </body>
 </html>
