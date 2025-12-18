@@ -2,95 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Missing Person Finder</title>
-
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/home.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FindTrace | Missing Person Finder</title>
+  <link rel="stylesheet" href="css/landing.css"/>
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<header class="navbar">
-  <div class="logo">Missing Person Finder</div>
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="add-missing.html">Report Missing</a>
-    <a href="find-match.html">Find Person</a>
-    <a href="#" class="login-btn">LOGIN</a>
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-dot"></span>
+      <span>FINDTRACE<br><small>MISSING PERSON FINDER</small></span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cases.html">Cases</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-btn"><a href="report.html">Report Missing</a></li>
+
+    </ul>
   </nav>
-</header>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="hero-left">
-    <h1>
-  Finding <span class="accent">Missing</span><br>
-  Persons Using <span class="accent">AI</span>
-</h1>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
 
+    <div class="bg-glow glow-red"></div>
+    <div class="bg-glow glow-blue"></div>
 
-    <div class="hero-actions">
-      <a href="add-missing.html" class="btn report">
-  📤 Report Missing
+    <div class="hero-content">
+      <h1>
+        Finding the Missing<br/>
+        <span>Through AI & Community</span>
+      </h1>
+
+      <p class="subtitle">
+        A next-generation platform combining artificial intelligence,
+        human verification, and trusted authorities to locate missing
+        persons with accuracy and responsibility.
+      </p>
+
+      <button class="outline-btn">SEARCH VERIFIED NETWORK</button>
+
+      <h2>Verified Leads.<br/>Real Impact.</h2>
+
+      <p class="subtitle">
+        AI suggests matches, people validate sightings,
+        and only verified information reaches police and NGOs.
+      </p>
+
+      <a href="get-started.html" class="primary-btn">
+  Get Started →
 </a>
 
-<a href="find-match.html" class="btn find">
-  🧠 Find Person
-</a>
+      
 
     </div>
-  </div>
-  <div class="hero-right">
-    <img src="../images/hero-ai.jpg" alt="AI Illustration">
-  </div>
-</section>
-<!-- ================= FEATURES ================= -->
-<section class="features">
-  <h2>Our Features</h2>
 
-  <div class="feature-grid">
-    <div class="feature-card">
-      <h3>AI Powered Search</h3>
-      <p>Facial recognition based matching</p>
+    <!-- FLOATING IMAGE CARDS -->
+    <div class="floating-elements">
+      <div class="float-card card-left-top">
+        <img src="assets/images/ai.jpg"><span>AI Face Match</span>
+      </div>
+      <div class="float-card card-right-top">
+        <img src="assets/images/community.jpg"><span>Community Sightings</span>
+      </div>
+      <div class="float-card card-left-middle">
+        <img src="assets/images/social.jpg"><span>Social Outreach</span>
+      </div>
+      <div class="float-card card-right-middle">
+        <img src="assets/images/cctv.jpg"><span>CCTV Analysis</span>
+      </div>
+      <div class="float-card card-left-bottom">
+        <img src="assets/images/alerts.jpg"><span>Verified Alerts</span>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <h3>Fast & Accurate</h3>
-      <p>Matches faces with high confidence</p>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section class="features">
+
+    <h2 class="section-title">Core Features</h2>
+    <p class="section-subtitle">
+      Built to prioritize accuracy, verification, and responsible action.
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-card">AI Face Recognition</div>
+      <div class="feature-card">Human Verification Layer</div>
+      <div class="feature-card">Community-Based Sightings</div>
+      <div class="feature-card">CCTV & Public Footage Analysis</div>
+      <div class="feature-card">Verified Alerts System</div>
+      <div class="feature-card">Police & NGO Integration</div>
     </div>
 
-    <div class="feature-card">
-      <h3>Safe & Secure</h3>
-      <p>Human verification required</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= HOW IT WORKS ================= -->
-<section class="how-it-works">
-  <h2>How It Works</h2>
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="how-it-works">
 
-  <div class="steps">
-    <div class="step">
-      <span>📄</span>
-      <h4>Report Missing Person</h4>
-      <p>Upload details & photo</p>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">
+      A clear, step-by-step pipeline designed for real-world reliability.
+    </p>
+
+    <div class="steps">
+
+      <div class="step-card">
+        <h3>1. AI Analysis</h3>
+        <p>
+          Uploaded images are analyzed using face recognition algorithms.
+          The system generates a match percentage from multiple data sources.
+        </p>
+      </div>
+
+      <div class="step-line"></div>
+
+      <div class="step-card">
+        <h3>2. Human Verification</h3>
+        <p>
+          Matches are reviewed by verified relatives and trusted users,
+          confirming sightings via a Yes / No validation flow.
+        </p>
+      </div>
+
+      <div class="step-line"></div>
+
+      <div class="step-card">
+        <h3>3. Official Action</h3>
+        <p>
+          Only high-confidence, verified leads are forwarded to police
+          stations and NGOs for timely intervention.
+        </p>
+      </div>
+
     </div>
 
-    <div class="step">
-      <span>🙂</span>
-      <h4>AI Face Matching</h4>
-      <p>System compares faces</p>
-    </div>
-
-    <div class="step">
-      <span>✅</span>
-      <h4>Get Results</h4>
-      <p>Possible matches shown</p>
-    </div>
-  </div>
-</section>
+  </section>
 
 </body>
 </html>

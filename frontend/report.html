@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report Missing | FindTrace</title>
+  <link rel="stylesheet" href="css/report.css"/>
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-dot"></span>
+      <span>FINDTRACE<br><small>MISSING PERSON FINDER</small></span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cases.html">Cases</a></li>
+      <li class="nav-btn"><a href="report.html">Report Missing</a></li>
+    </ul>
+  </nav>
+
+  <!-- ================= REPORT ================= -->
+  <section class="report-page">
+
+    <!-- Glow effects -->
+    <div class="bg-glow glow-blue"></div>
+    <div class="bg-glow glow-red"></div>
+
+    <div class="report-card">
+
+      <h1>Report a Missing Person</h1>
+      <p class="subtitle">
+        Provide accurate details to help AI analysis and verified community
+        validation. All information is handled securely and responsibly.
+      </p>
+
+      <form class="report-form">
+
+        <!-- Name -->
+        <div class="form-group">
+          <label>Full Name of Missing Person</label>
+          <input type="text" placeholder="Enter full name" required />
+        </div>
+
+        <!-- Age + Gender -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" placeholder="Age" required />
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <select required>
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Last Seen -->
+        <div class="form-group">
+          <label>Last Seen Location</label>
+          <input type="text" placeholder="City, area, landmark" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Last Seen Date</label>
+            <input type="date" required />
+          </div>
+          <div class="form-group">
+            <label>Last Seen Time</label>
+            <input type="time" />
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label>Physical Description</label>
+          <textarea rows="4"
+            placeholder="Clothing, height, identifying marks, behavior, etc."></textarea>
+        </div>
+
+        <!-- Upload -->
+        <div class="form-group">
+          <label>Upload Recent Photograph</label>
+          <input type="file" accept="image/*" />
+          <small>Used for AI-based face matching analysis.</small>
+        </div>
+
+        <!-- Contact -->
+        <div class="form-group">
+          <label>Your Contact Information</label>
+          <input type="text" placeholder="Phone number or email" required />
+        </div>
+
+        <!-- Consent -->
+        <div class="checkbox-group">
+          <input type="checkbox" required />
+          <span>
+            I confirm that the information provided is accurate and consent to
+            AI analysis and community verification.
+          </span>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn">
+          Submit Report →
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+</body>
+</html>
