@@ -1,123 +1,177 @@
+/* ================= ROOT ================= */
+:root {
+  --bg-dark: #0b0f1a;
+  --bg-card: rgba(255, 255, 255, 0.06);
+  --neon-blue: #4f9cff;
+  --neon-purple: #8b5cf6;
+  --neon-cyan: #22d3ee;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+
 /* ================= MATCH PAGE ================= */
 .match-section {
-  max-width: 800px;
-  margin: 70px auto;
-  padding: 40px 50px;
+  max-width: 900px;
+  margin: 90px auto;
+  padding: 60px;
+  background: radial-gradient(circle at top, #111827, var(--bg-dark));
+  border-radius: 28px;
+  box-shadow: 0 0 80px rgba(79,156,255,0.15);
 }
 
 .match-section h1 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  font-size: 15px;
-  color: #475569;
-  margin-bottom: 30px;
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
 }
 
 /* ================= UPLOAD CARD ================= */
 .upload-card {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  box-shadow:
+    0 0 40px rgba(79,156,255,0.15),
+    0 0 80px rgba(139,92,246,0.08);
 }
 
 .upload-box {
   display: block;
-  border: 2px dashed #c7d2fe;
-  border-radius: 12px;
-  padding: 30px;
+  border: 2px dashed rgba(79,156,255,0.6);
+  border-radius: 18px;
+  padding: 40px;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 25px rgba(34,211,238,0.4);
 }
 
 .upload-box .icon {
-  font-size: 36px;
+  font-size: 44px;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  color: var(--neon-cyan);
 }
 
 .upload-box p {
-  font-size: 14px;
-  color: #475569;
+  font-size: 15px;
+  color: var(--text-muted);
 }
 
-/* ================= BUTTON ================= */
+/* ================= MATCH BUTTON ================= */
 .match-btn {
-  padding: 14px 24px;
-  border-radius: 10px;
+  padding: 16px 36px;
+  border-radius: 18px;
   border: none;
-  background: #2563eb;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
   color: #ffffff;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .match-btn:hover {
-  background: #1e40af;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 0 25px rgba(79,156,255,0.5),
+    0 0 60px rgba(139,92,246,0.3);
 }
 
 /* ================= RESULT CARD ================= */
 .result-card {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 0 40px rgba(34,211,238,0.15),
+    0 0 80px rgba(79,156,255,0.1);
 }
 
 .result-card h3 {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  font-size: 20px;
+  color: var(--neon-cyan);
 }
 
 .result-content {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   align-items: center;
 }
 
+/* ================= IMAGE PREVIEW ================= */
 .image-preview {
-  width: 140px;
-  height: 140px;
-  border-radius: 12px;
-  background: #e5edff;
+  width: 160px;
+  height: 160px;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(79,156,255,0.2), rgba(139,92,246,0.2));
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow:
+    0 0 25px rgba(79,156,255,0.35);
 }
 
+/* ================= MATCH INFO ================= */
 .result-info {
   flex: 1;
 }
 
+.result-info p {
+  color: var(--text-main);
+}
+
+/* ================= PROGRESS BAR ================= */
 .progress-bar {
   width: 100%;
-  height: 10px;
-  background: #e5e7eb;
-  border-radius: 6px;
-  margin: 8px 0;
+  height: 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin: 12px 0;
+  overflow: hidden;
 }
 
 .progress {
   height: 100%;
-  background: #2563eb;
-  border-radius: 6px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-blue));
+  border-radius: 10px;
   width: 0%;
+  box-shadow:
+    0 0 20px rgba(34,211,238,0.6);
 }
 
+/* ================= PERCENTAGE ================= */
 .percentage {
-  font-size: 14px;
-  font-weight: 600;
-  color: #1e293b;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--neon-cyan);
 }
 
 /* ================= RESPONSIVE ================= */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .match-section {
     margin: 40px 20px;
-    padding: 20px;
+    padding: 40px 30px;
   }
 
   .result-content {
