@@ -212,3 +212,8 @@
   font-size: 14px;
   color: var(--text-muted);
 }
+.accent {
+  background: linear-gradient(90deg, #22d3ee, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
