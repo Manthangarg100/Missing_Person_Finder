@@ -5,105 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Match People | FindTrace</title>
   <link rel="stylesheet" href="css/match.css"/>
+
+  <style>
+    .result-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .verify-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .verify-buttons button {
+      padding: 8px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .yes-btn { background: #28a745; color: white; }
+    .no-btn { background: #dc3545; color: white; }
+
+    .person-label {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-bottom: 6px;
+    }
+
+    .explanation {
+      font-size: 14px;
+      opacity: 0.85;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ================= NAVBAR ================= -->
-  <nav class="navbar">
-    <div class="logo">
-      <span class="logo-dot"></span>
-      <span>FINDTRACE<br><small>MISSING PERSON FINDER</small></span>
+<nav class="navbar">
+  <div class="logo">
+    <span class="logo-dot"></span>
+    <span>FINDTRACE<br><small>MISSING PERSON FINDER</small></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-btn"><a href="report.html">Report Missing</a></li>
+  </ul>
+</nav>
+
+<section class="match-page">
+  <div class="container">
+
+    <div class="header">
+      <h1>AI Match</h1>
+      <p>Upload an image to match against reported missing persons</p>
     </div>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="get-started.html">Get Started</a></li>
-      <li class="nav-btn"><a href="report.html">Report Missing</a></li>
-    </ul>
-  </nav>
-
-  <!-- ================= MATCH PAGE ================= -->
-  <section class="match-page">
-
-    <!-- Background glow -->
-    <div class="bg-glow blue"></div>
-    <div class="bg-glow red"></div>
-
-    <div class="container">
-
-      <!-- HEADER -->
-      <div class="header">
-        <h1>Match People <span>(AI Match %)</span></h1>
-        <p>
-          Upload a clear image to compare it against verified missing-person
-          records. AI generates match percentages which are always reviewed
-          by humans before any action.
-        </p>
-      </div>
-
-      <!-- ================= UPLOAD ================= -->
-      <div class="upload-card">
-        <div class="upload-box">
-          <div class="upload-icon">📷</div>
-          <p class="upload-text">Upload a clear photo of the person</p>
-          <input type="file" accept="image/*" />
-        </div>
-
-        <button class="analyze-btn">Analyze Image →</button>
-
-        <div class="info">
-          <p>⏳ Analysis may take a few moments.</p>
-          <p>🔒 Results visible only after verification.</p>
-          <p>⚠️ AI output is indicative, not final.</p>
-        </div>
-      </div>
-
-      <!-- ================= RESULTS (HIDDEN BY DEFAULT) ================= -->
-      <div class="results hidden">
-
-        <h2>Potential Matches</h2>
-
-        <div class="result-grid">
-
-          <!-- RESULT CARD TEMPLATE -->
-          <div class="result-card">
-            <div class="result-img"></div>
-            <div class="result-info">
-              <h3>Match Confidence</h3>
-              <div class="percent high">82%</div>
-              <p>High similarity detected</p>
-            </div>
-          </div>
-
-          <div class="result-card">
-            <div class="result-img"></div>
-            <div class="result-info">
-              <h3>Match Confidence</h3>
-              <div class="percent medium">61%</div>
-              <p>Moderate similarity detected</p>
-            </div>
-          </div>
-
-          <div class="result-card">
-            <div class="result-img"></div>
-            <div class="result-info">
-              <h3>Match Confidence</h3>
-              <div class="percent low">34%</div>
-              <p>Low similarity detected</p>
-            </div>
-          </div>
-
-        </div>
-
-        <p class="disclaimer">
-          Only verified matches above a defined threshold
-          are forwarded for community validation and authority review.
-        </p>
-
-      </div>
-
+    <div class="upload-card">
+      <input id="matchImage" type="file" accept="image/*" />
+      <button class="analyze-btn" onclick="analyze()">Analyze Image →</button>
+      <p id="status"></p>
     </div>
-  </section>
+
+    <div class="results hidden">
+      <h2>Potential Matches</h2>
+      <div class="result-grid"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+async function analyze() {
+  const fileInput = document.getElementById("matchImage");
+  const file = fileInput.files[0];
+
+  if (!file) {
+    alert("Please upload an image");
+    return;
+  }
+
+  const previewURL = URL.createObjectURL(file);
+  document.getElementById("status").innerText = "⏳ Analyzing...";
+
+  const formData = new FormData();
+  formData.append("image", file);
+
+  try {
+    const res = await fetch("http://127.0.0.1:8001/match", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();
+
+    const resultsDiv = document.querySelector(".results");
+    const grid = document.querySelector(".result-grid");
+
+    resultsDiv.classList.remove("hidden");
+    grid.innerHTML = "";
+    document.getElementById("status").innerText = "";
+
+    if (!data.matches || data.matches.length === 0) {
+      grid.innerHTML = "<p>No matches found</p>";
+      return;
+    }
+
+    data.matches.forEach(m => {
+      grid.innerHTML += `
+        <div class="result-card">
+          <img src="${previewURL}" class="result-img" />
+
+          <div class="result-info">
+            <h3>${m.name}</h3>
+            <div class="person-label">Reported Missing Person</div>
+
+            <div class="percent">${m.confidence}%</div>
+
+            <p class="explanation">
+              ${m.explanation || "AI explanation unavailable. Please verify manually."}
+            </p>
+
+            <div class="verify-buttons">
+              <button class="yes-btn" onclick="verify('${m.id}', true)">YES</button>
+              <button class="no-btn" onclick="verify('${m.id}', false)">NO</button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+  } catch (err) {
+    alert("❌ Backend error");
+  }
+}
+
+function verify(id, decision) {
+  alert(
+    decision
+      ? "✅ Match confirmed by human"
+      : "❌ Match rejected by human"
+  );
+}
+</script>
 
 </body>
 </html>

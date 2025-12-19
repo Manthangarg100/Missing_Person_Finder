@@ -206,7 +206,7 @@ body {
 }
 
 .result-img {
-  height: 160px;
+  height: 250px;
   border-radius: 12px;
   background: linear-gradient(135deg, #1e293b, #020409);
   margin-bottom: 16px;

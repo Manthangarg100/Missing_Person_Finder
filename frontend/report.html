@@ -8,116 +8,90 @@
 </head>
 <body>
 
-  <!-- ================= NAVBAR ================= -->
-  <nav class="navbar">
-    <div class="logo">
-      <span class="logo-dot"></span>
-      <span>FINDTRACE<br><small>MISSING PERSON FINDER</small></span>
-    </div>
+<nav class="navbar">
+  <div class="logo">
+    <span class="logo-dot"></span>
+    <span>FINDTRACE<br><small>MISSING PERSON FINDER</small></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-btn"><a href="report.html">Report Missing</a></li>
+  </ul>
+</nav>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="cases.html">Cases</a></li>
-      <li class="nav-btn"><a href="report.html">Report Missing</a></li>
-    </ul>
-  </nav>
+<section class="report-page">
+  <div class="report-card">
 
-  <!-- ================= REPORT ================= -->
-  <section class="report-page">
+    <h1>Report a Missing Person</h1>
 
-    <!-- Glow effects -->
-    <div class="bg-glow glow-blue"></div>
-    <div class="bg-glow glow-red"></div>
+    <form class="report-form" onsubmit="submitReport(event)">
 
-    <div class="report-card">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input id="name" type="text" required />
+      </div>
 
-      <h1>Report a Missing Person</h1>
-      <p class="subtitle">
-        Provide accurate details to help AI analysis and verified community
-        validation. All information is handled securely and responsibly.
-      </p>
-
-      <form class="report-form">
-
-        <!-- Name -->
+      <div class="form-row">
         <div class="form-group">
-          <label>Full Name of Missing Person</label>
-          <input type="text" placeholder="Enter full name" required />
+          <label>Age</label>
+          <input id="age" type="number" required />
         </div>
-
-        <!-- Age + Gender -->
-        <div class="form-row">
-          <div class="form-group">
-            <label>Age</label>
-            <input type="number" placeholder="Age" required />
-          </div>
-          <div class="form-group">
-            <label>Gender</label>
-            <select required>
-              <option value="">Select</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Last Seen -->
         <div class="form-group">
-          <label>Last Seen Location</label>
-          <input type="text" placeholder="City, area, landmark" required />
+          <label>Gender</label>
+          <select id="gender" required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
         </div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label>Last Seen Date</label>
-            <input type="date" required />
-          </div>
-          <div class="form-group">
-            <label>Last Seen Time</label>
-            <input type="time" />
-          </div>
-        </div>
+      <div class="form-group">
+        <label>Upload Photograph</label>
+        <input id="photo" type="file" accept="image/*" required />
+      </div>
 
-        <!-- Description -->
-        <div class="form-group">
-          <label>Physical Description</label>
-          <textarea rows="4"
-            placeholder="Clothing, height, identifying marks, behavior, etc."></textarea>
-        </div>
+      <button type="submit" class="submit-btn">
+        Submit Report →
+      </button>
 
-        <!-- Upload -->
-        <div class="form-group">
-          <label>Upload Recent Photograph</label>
-          <input type="file" accept="image/*" />
-          <small>Used for AI-based face matching analysis.</small>
-        </div>
+    </form>
 
-        <!-- Contact -->
-        <div class="form-group">
-          <label>Your Contact Information</label>
-          <input type="text" placeholder="Phone number or email" required />
-        </div>
+  </div>
+</section>
 
-        <!-- Consent -->
-        <div class="checkbox-group">
-          <input type="checkbox" required />
-          <span>
-            I confirm that the information provided is accurate and consent to
-            AI analysis and community verification.
-          </span>
-        </div>
+<script>
+async function submitReport(e) {
+  e.preventDefault();
 
-        <!-- Submit -->
-        <button type="submit" class="submit-btn">
-          Submit Report →
-        </button>
+  const formData = new FormData();
+  formData.append("name", document.getElementById("name").value);
+  formData.append("age", document.getElementById("age").value);
+  formData.append("gender", document.getElementById("gender").value);
+  formData.append("image", document.getElementById("photo").files[0]);
 
-      </form>
+  try {
+    const res = await fetch("http://127.0.0.1:8001/report-missing", {
+      method: "POST",
+      body: formData
+    });
 
-    </div>
+    const data = await res.json();
 
-  </section>
+    if (data.error) {
+      alert("❌ " + data.error);
+      return;
+    }
+
+    alert("✅ Missing person reported successfully");
+    document.querySelector(".report-form").reset();
+
+  } catch (err) {
+    alert("❌ Cannot connect to backend");
+  }
+}
+</script>
 
 </body>
 </html>
