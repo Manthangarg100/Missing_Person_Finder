@@ -173,7 +173,7 @@ body {
 .card-left-bottom { bottom: 100px; left: 120px; transform: rotate(-12deg); }
 
 /* SECTIONS */
-.features, .how-it-works {
+.features, .how-it-works, .about {
   padding: 100px 80px;
   text-align: center;
 }
@@ -223,4 +223,44 @@ body {
   width: 80px;
   height: 2px;
   background: linear-gradient(to right, transparent, #93c5fd, transparent);
+}
+
+/* ABOUT PAGE */
+.about-page {
+  padding: 100px 80px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-page h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.intro {
+  font-size: 18px;
+  color: #cbd5f5;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-content {
+  text-align: left;
+  display: grid;
+  gap: 40px;
+}
+
+.about-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #e5e7eb;
+}
+
+.about-section p {
+  color: #cbd5f5;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
