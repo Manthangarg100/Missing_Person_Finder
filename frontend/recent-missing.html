@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recent Missing Persons | FindTrace</title>
+  <link rel="stylesheet" href="css/recent-missing.css"/>
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-dot"></span>
+      <span>FINDTRACE<br><small>MISSING PERSON FINDER</small></span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="get-started.html">Get Started</a></li>
+      <li class="nav-btn"><a href="report.html">Report Missing</a></li>
+    </ul>
+  </nav>
+
+  <!-- ================= PAGE ================= -->
+  <section class="missing-page">
+
+    <!-- background glow -->
+    <div class="bg-glow blue"></div>
+    <div class="bg-glow red"></div>
+
+    <div class="container">
+
+      <!-- HEADER -->
+      <header class="page-header">
+        <h1>Recent Missing Persons</h1>
+        <p>
+          Verified missing-person reports shared to encourage responsible
+          community assistance. All information is moderated and reviewed.
+        </p>
+      </header>
+
+      <!-- ================= FILTERS ================= -->
+      <div class="filters">
+        <input type="text" placeholder="Search by name" />
+        <input type="text" placeholder="Location (City / State)" />
+        <select>
+          <option>Status</option>
+          <option>Verification Ongoing</option>
+          <option>Under Investigation</option>
+          <option>Lead Verified</option>
+        </select>
+      </div>
+
+      <!-- ================= GRID ================= -->
+      <div class="card-grid">
+
+        <!-- CARD -->
+        <div class="person-card">
+          <div class="photo"></div>
+          <div class="info">
+            <h2>Rohan Sharma</h2>
+            <p>Age: 21 • Male</p>
+            <p>Last seen: Delhi • 12 Aug 2025</p>
+          </div>
+          <span class="status yellow">Verification Ongoing</span>
+          <a href="#" class="view-btn">View Details</a>
+        </div>
+
+        <div class="person-card">
+          <div class="photo"></div>
+          <div class="info">
+            <h2>Anita Verma</h2>
+            <p>Age: 34 • Female</p>
+            <p>Last seen: Jaipur • 08 Aug 2025</p>
+          </div>
+          <span class="status blue">Under Investigation</span>
+          <a href="#" class="view-btn">View Details</a>
+        </div>
+
+        <div class="person-card">
+          <div class="photo"></div>
+          <div class="info">
+            <h2>Mohit Khan</h2>
+            <p>Age: 17 • Male</p>
+            <p>Last seen: Bhopal • 04 Aug 2025</p>
+          </div>
+          <span class="status green">Lead Verified</span>
+          <a href="#" class="view-btn">View Details</a>
+        </div>
+
+      </div>
+
+      <!-- ================= DISCLAIMER ================= -->
+      <div class="disclaimer">
+        <p>⚠️ Do not contact individuals directly.</p>
+        <p>📢 Share sightings only through the official tip submission flow.</p>
+        <p>⚖️ False reporting may have legal consequences.</p>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
