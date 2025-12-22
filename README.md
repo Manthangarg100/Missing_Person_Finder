@@ -43,4 +43,8 @@ This project provides a user-friendly interface to: Report missing persons View 
 ## 📈 Future Enhancements
 Role-based authentication (Admin / User)
 
-Real-time notifications Mobile app integration Advanced analytics dashboard
+Real-time notifications 
+
+Mobile app integration 
+
+Advanced analytics dashboard
