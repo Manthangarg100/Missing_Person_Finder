@@ -1,9 +1,9 @@
 fastapi
 uvicorn
-python-multipart
-deepface==0.0.75
-tensorflow==2.14.0
+deepface
 opencv-python-headless
+numpy
 firebase-admin
 google-generativeai
-
+python-multipart
+pillow
