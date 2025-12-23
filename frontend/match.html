@@ -43,11 +43,12 @@
     .demo-note {
       font-size: 12px;
       opacity: 0.6;
-      margin-top: 20px;
+      margin-top: 25px;
       text-align: center;
     }
   </style>
 </head>
+
 <body>
 
 <nav class="navbar">
@@ -71,9 +72,96 @@
 
     <div class="upload-card">
       <input id="matchImage" type="file" accept="image/*" />
-      <button class="analyze-btn" onclick="analyze()">Analyze Image →</button>
+      <button class="analyze-btn" id="analyzeBtn">Analyze Image →</button>
       <p id="status"></p>
     </div>
 
     <div class="results hidden">
-      <h2>Poten
+      <h2>Potential Matches</h2>
+      <div class="result-grid"></div>
+    </div>
+
+    <p class="demo-note">
+      ⚠️ AI results are simulated for MVP demo. Full AI backend implemented using DeepFace & Gemini.
+    </p>
+
+  </div>
+</section>
+
+<script type="module">
+import { DEMO_MODE } from "./js/config.js";
+
+const analyzeBtn = document.getElementById("analyzeBtn");
+analyzeBtn.addEventListener("click", analyze);
+
+async function analyze() {
+  const fileInput = document.getElementById("matchImage");
+  const file = fileInput.files[0];
+
+  if (!file) {
+    alert("Please upload an image");
+    return;
+  }
+
+  const previewURL = URL.createObjectURL(file);
+  document.getElementById("status").innerText = "⏳ Analyzing with AI...";
+
+  // Simulated AI delay
+  await new Promise(res => setTimeout(res, 1500));
+
+  const data = {
+    matches: [
+      {
+        id: "mp001",
+        name: "Rahul Sharma",
+        confidence: 88.7,
+        explanation:
+          "High facial similarity detected. Results may vary due to lighting and pose. Human verification is recommended."
+      },
+      {
+        id: "mp002",
+        name: "Amit Verma",
+        confidence: 64.3,
+        explanation:
+          "Moderate similarity detected. Image quality and partial facial visibility may affect accuracy."
+      }
+    ]
+  };
+
+  const resultsDiv = document.querySelector(".results");
+  const grid = document.querySelector(".result-grid");
+
+  resultsDiv.classList.remove("hidden");
+  grid.innerHTML = "";
+  document.getElementById("status").innerText = "";
+
+  data.matches.forEach(m => {
+    const level =
+      m.confidence >= 80 ? "high" :
+      m.confidence >= 60 ? "medium" : "low";
+
+    grid.innerHTML += `
+      <div class="result-card">
+        <img src="${previewURL}" class="result-img" />
+
+        <h3>${m.name}</h3>
+        <div class="person-label">Reported Missing Person</div>
+
+        <div class="percent ${level}">
+          ${m.confidence}%
+        </div>
+
+        <p class="explanation">${m.explanation}</p>
+
+        <div class="verify-buttons">
+          <button class="yes-btn" onclick="alert('✅ Match confirmed by human')">YES</button>
+          <button class="no-btn" onclick="alert('❌ Match rejected by human')">NO</button>
+        </div>
+      </div>
+    `;
+  });
+}
+</script>
+
+</body>
+</html>
