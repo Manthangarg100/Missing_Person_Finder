@@ -58,38 +58,23 @@
 
     </form>
 
+    <p style="font-size:12px;opacity:0.6;margin-top:15px;text-align:center">
+      ⚠️ Demo mode: data submission is simulated for MVP demonstration.
+    </p>
+
   </div>
 </section>
 
-<script>
+<script type="module">
+import { DEMO_MODE } from "./js/config.js";
+
 async function submitReport(e) {
   e.preventDefault();
 
-  const formData = new FormData();
-  formData.append("name", document.getElementById("name").value);
-  formData.append("age", document.getElementById("age").value);
-  formData.append("gender", document.getElementById("gender").value);
-  formData.append("image", document.getElementById("photo").files[0]);
-
-  try {
-    const res = await fetch("http://127.0.0.1:8001/report-missing", {
-      method: "POST",
-      body: formData
-    });
-
-    const data = await res.json();
-
-    if (data.error) {
-      alert("❌ " + data.error);
-      return;
-    }
-
-    alert("✅ Missing person reported successfully");
-    document.querySelector(".report-form").reset();
-
-  } catch (err) {
-    alert("❌ Cannot connect to backend");
-  }
+  // ✅ DEMO MODE SUCCESS
+  await new Promise(res => setTimeout(res, 1000));
+  alert("✅ Missing person reported successfully (Demo Mode)");
+  document.querySelector(".report-form").reset();
 }
 </script>
 
